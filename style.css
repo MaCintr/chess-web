@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+html {
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgb(92, 92, 92);
+}
+
+h1 {
+  font-size: 50px;
+  font-weight: 500;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-image: linear-gradient(-225deg,
+      #fff800 0%,
+      #ff1361 50%,
+      #fff800 100%);
+  background-size: auto auto;
+  background-clip: border-box;
+  background-size: 200% auto;
+  color: #fff;
+  background-clip: text;
+  background-clip: transparent;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: textclip 3s linear infinite;
+  display: inline-block;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+
+p {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 900;
+}
+
+.turn-white {
+  color: white;
+}
+
+.turn-black {
+  color: black;
+}
+
+img {
+  padding: 5px;
+  width: 90%;
+  pointer-events: none;
+}
+
+.branca-active {
+  filter: drop-shadow(0px 0px 4px white);
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.invert {
+  filter: invert(100%);
+}
+
+.preta-active {
+  filter: drop-shadow(0px 0px 4px black);
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.onplay {
+  cursor: pointer;
+}
+
+.onplay:hover {
+  filter: drop-shadow(0px 0px 4px rgb(0, 217, 255))
+}
+
+.selected {
+  filter: drop-shadow(0px 0px 4px rgb(0, 217, 255))
+}
+
+td {
+  text-align: center;
+  border: none;
+  width: 85px;
+  height: 85px;
+  margin: 0;
+}
+
+.tabuleiro {
+  display: flex;
+  justify-content: center;
+  border: solid 5px darkgoldenrod;
+  background-color: darkgoldenrod;
+  box-shadow: black 10px 10px 10px;
+}
+
+.branco {
+  background-color: rgb(253, 245, 229);
+}
+
+.preto {
+  background-color: rgb(44, 44, 42);
+}
+
+.movimento {
+  background-color: rgb(25, 99, 41);
+  cursor: pointer;
+}
