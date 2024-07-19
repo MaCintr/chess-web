@@ -81,6 +81,8 @@ pecas.forEach(peca => {
             moveCavalo(peca)
         } else if (peca.classList.contains('rainha')) {
             moverRainha(peca)
+        } else {
+            moverRei(peca)
         }
     })
 });
@@ -327,6 +329,35 @@ function moveCavalo(peca) {
 function moverRainha(peca) {
     moveBispo(peca)
     moverTorre(peca)
+}
+
+function moverRei(peca) {
+    console.log(peca)
+    const tdElement = peca.closest('.tabuleiro__quadrante')
+    const id = tdElement.id
+    const x = parseInt(id[0])
+    const y = parseInt(id[1])
+    const movimentosPossiveis = [
+        [x + 1, y],     // Direita
+        [x - 1, y],     // Esquerda
+        [x, y + 1],     // Acima
+        [x, y - 1],     // Abaixo
+        [x + 1, y + 1], // Diagonal superior direita
+        [x - 1, y + 1], // Diagonal superior esquerda
+        [x + 1, y - 1], // Diagonal inferior direita
+        [x - 1, y - 1]  // Diagonal inferior esquerda
+    ]
+
+    movimentosPossiveis.forEach(posicao => {
+        const [novoX, novoY] = posicao
+        if (novoX > 0 && novoX < 9 && novoY > 0 && novoY < 9) {
+            const novoId = `${novoX}${novoY}`
+            const quadrante = document.getElementById(novoId)
+            if (!verificarQuadrante(quadrante)) {
+                quadrante.classList.add('movimento')
+            }
+        }
+    })
 }
 
 function removerPeca(peca) {
